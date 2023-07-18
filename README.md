@@ -12,3 +12,5 @@ This is a web application that allows users to test and improve their typing spe
 - Mistake Count: The application keeps track of the number of mistakes made by the user while typing and provides feedback on incorrect characters.
 
 ## Screenshots
+<img src="https://github.com/chriszimbizi/typing-speed-test/assets/121321293/24a8f18f-09af-45da-af7b-6c7dca5e4867" height="350" alt="desktop-design" />
+
