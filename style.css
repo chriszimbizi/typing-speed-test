@@ -1,0 +1,164 @@
+:root {
+  --clr-bg: hsl(216, 5%, 21%);
+  --clr-text: hsl(55, 12%, 80%);
+
+  --clr-primary-400: hsl(210, 2%, 40%);
+  --clr-primary-900: hsl(225, 4%, 18%);
+
+  --incorrect: hsl(354, 55%, 54%);
+  --active: hsl(47, 84%, 48%);
+
+  --radius: 0.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.6;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  display: grid;
+  place-content: center;
+  padding-inline: 1rem;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  user-select: none;
+}
+
+.wrapper {
+  max-width: 60em;
+  padding: 2rem;
+  border: 1px solid var(--clr-primary-400);
+  border-radius: var(--radius);
+
+}
+
+.input-field {
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
+}
+
+.content-container {
+  padding: 1rem 1.5rem 0;
+
+  & > span {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--active);
+  }
+}
+
+.typing-text {
+  /* max-height: 7rem; */
+  /* overflow: hidden; */
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  & p {
+    font-size: 1.5rem;
+    color: var(--clr-primary-400);
+
+    & span {
+      position: relative;
+
+      &.correct {
+        color: var(--clr-text);
+      }
+
+      &.incorrect {
+        color: var(--incorrect);
+      }
+
+      &.active::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        background: var(--active);
+        animation: blink 1s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+
+.content {
+  margin-block-start: 1rem;
+  padding-block: 0.75rem;
+  border-radius: var(--radius);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  background: hsl(216, 5%, 18%);
+
+  & button {
+    background: none;
+    border: none;
+    margin-inline: 2rem;
+
+    & i {
+      color: var(--clr-primary-400);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 250ms ease;
+
+      &:is(:hover, :focus) {
+        color: var(--clr-text);
+      }
+    }
+  }
+}
+
+.result-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  & li {
+    display: flex;
+    padding-inline: 2rem;
+    border-right: 2px solid var(--clr-primary-400);
+  }
+}

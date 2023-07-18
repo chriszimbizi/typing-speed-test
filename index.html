@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Speed Test</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/352941762f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon\apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon\favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon\favicon-16x16.png" />
+    <link rel="manifest" href="favicon\site.webmanifest" />
+
+    <!-- JS -->
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <input type="text" class="input-field" />
+      <div class="content-container">
+        <span id="time">60</span>
+        <div class="typing-text">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
+            eius! Perferendis, exercitationem nam. Aliquam voluptatibus,
+            architecto asperiores assumenda culpa ipsum? Nam veritatis
+            voluptatem error sit voluptas beatae pariatur libero quia?
+          </p>
+        </div>
+
+        <div class="content">
+          <ul class="result-details">
+            <li>
+              <p>Accuracy:</p>
+              <span id="accuracy">100%</span>
+            </li>
+            <li>
+              <p>WPM:</p>
+              <span id="wpm">0</span>
+            </li>
+            <li>
+              <p>CPM:</p>
+              <span id="cpm">0</span>
+            </li>
+          </ul>
+          <button><i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
