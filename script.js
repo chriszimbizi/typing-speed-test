@@ -48,7 +48,7 @@ const loadParagraph = () => {
   // Add the "active" class to the first <span> element
   typingText.querySelectorAll("span")[0].classList.add("active");
 
-  // Set up event listeners for focusing the input field
+  // Event listeners for focusing the input field
   document.addEventListener("keydown", () => inputField.focus());
   typingText.addEventListener("click", () => inputField.focus());
 };
@@ -63,35 +63,30 @@ const initTyping = () => {
 
   // Check if the end of the paragraph has been reached or the time is up
   if (charIndex > chars.length - 1 || timeLeft <= 0) {
-    clearInterval(timer); // Clear the timer interval
-    inputField.value = ""; // Clear the input field
+    clearInterval(timer);
+    inputField.value = "";
   } else {
     // Start the timer if it's not already running
     if (!isTyping) {
-      timer = setInterval(initTimer, 1000); // Call initTimer every second
+      timer = setInterval(initTimer, 1000);
       isTyping = true;
     }
 
     // Handle backspace
-    if (typedChar == null) {
-      // Check if the typed character is null (backspace)
-      if (charIndex > 0) {
-        // Check if the current character index is greater than 0
-        charIndex--; // Decrement the character index to move back
-        if (chars[charIndex].classList.contains("incorrect")) {
-          // Check if the previous character was marked as incorrect
-          mistakes--; // Decrement the mistakes count
-        }
-        chars[charIndex].classList.remove("correct", "incorrect"); // Remove the correctness classes
+    if (typedChar == null && charIndex > 0) {
+      charIndex--;
+      if (chars[charIndex].classList.contains("incorrect")) {
+        // If previous character was marked as incorrect, decrement mistakes count
+        mistakes--;
       }
+      chars[charIndex].classList.remove("correct", "incorrect"); // Remove the correctness classes
     } else {
       // Update the active character's style based on correctness
       if (chars[charIndex].textContent == typedChar) {
-        // Check if the typed character matches the expected character
-        chars[charIndex].classList.add("correct"); // Add the "correct" class
+        chars[charIndex].classList.add("correct");
       } else {
-        mistakes++; // Increment the mistakes count
-        chars[charIndex].classList.add("incorrect"); // Add the "incorrect" class
+        mistakes++;
+        chars[charIndex].classList.add("incorrect");
       }
       charIndex++; // Move to the next character and set it as active
     }
@@ -122,9 +117,9 @@ const initTimer = () => {
     let wpm = Math.round(
       ((charIndex - mistakes) / 5 / (maxTime - timeLeft)) * 60
     );
-    wpmTag.textContent = wpm; // Update WPM in the UI
+    wpmTag.textContent = wpm;
   } else {
-    clearInterval(timer); // Clear the timer interval
+    clearInterval(timer); 
   }
 };
 
