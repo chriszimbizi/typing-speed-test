@@ -21,7 +21,7 @@ const paragraphs = [
 ];
 
 // DOM elements
-const typingText = document.querySelector(".typing-text p");
+const typingText = document.querySelector(".typing-text");
 const inputField = document.querySelector(".input-field");
 const resetBtn = document.querySelector(".content button");
 const timeTag = document.querySelector("#time");
@@ -119,7 +119,7 @@ const initTimer = () => {
     );
     wpmTag.textContent = wpm;
   } else {
-    clearInterval(timer); 
+    clearInterval(timer);
   }
 };
 
